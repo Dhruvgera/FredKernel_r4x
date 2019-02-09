@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Phantom Kernel by @Dencel007. Credits: TeamQuantum & TeamGhost
+kernel.string= Fred Kernel by @Dhruv007 and JP
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
