@@ -42,6 +42,14 @@ insert_line fstab.qcom "data        f2fs" before "data        ext4" "/dev/block/
 insert_line fstab.qcom "cache        f2fs" after "data        ext4" "/dev/block/bootdevice/by-name/cache     /cache        f2fs    nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush wait,formattable,check";
 fi;
 
+backup_file init.rc;
+	
+if [ $(cat "/vendor/etc" | grep forceencypt | wc -l) -gt "0" ]; then
+	ui_print " "; ui_print "Force encryption is enabled";
+cp -rpf /tmp/anykernel/patch/fstab.tc.qcom /vendor/etc/fstab.qcom;
+
+fi;
+
 # end ramdisk changes
 
 write_boot;
